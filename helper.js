@@ -142,7 +142,6 @@ const readSourceHash = function (bytecodeBuffer) {
  * @returns {any}    The result of the very last statement executed in the script.
  */
 const runBytecode = function (bytecodeBuffer) {
-  console.log(bytecodeBuffer)
   if (!Buffer.isBuffer(bytecodeBuffer)) {
     throw new Error('bytecodeBuffer must be a buffer object.');
   }
